@@ -7,14 +7,14 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-backend',
+    'id' => 'app-admin',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'admin\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-backend',
+            'csrfParam' => '_csrf-admin',
         ],
 //        'user' => [
 //            'identityClass' => 'common\models\User',
@@ -30,7 +30,7 @@ return [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'levels' => ['error', 'warning','info'],
                 ],
             ],
         ],
@@ -44,7 +44,19 @@ return [
             'rules' => [
             ],
         ],
-
+//        'response' => [
+//            'class' => 'yii\web\Response',
+//            'on beforeSend' => function ($event) {
+//                $response = $event->sender;
+//                if ($response->data !== null && !empty(Yii::$app->request->get(''))) {
+//                    $response->data = [
+//                        'success' => $response->isSuccessful,
+//                        'data' => $response->data,
+//                    ];
+//                    $response->statusCode = 200;
+//                }
+//            },
+//        ],
     ],
     'params' => $params,
 ];
