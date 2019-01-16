@@ -2,13 +2,14 @@
 
 namespace admin\controllers;
 
-header("Access-Control-Allow-Origin:*");
-header("Access-Control-Allow-Headers:Origin, X-Requested-With, Content-Type,x-access-token");
-header("Access-Control-Allow-Methods:HEAD, GET, POST, DELETE, PUT, OPTIONS");
+//header("Access-Control-Allow-Origin:http://www.demo.com");
+//header("Access-Control-Allow-Headers:Origin, X-Requested-With, Content-Type,x-access-token");
+//header("Access-Control-Allow-Methods:HEAD, GET, POST, DELETE, PUT, OPTIONS");
 
-use yii\web\Controller;
+use admin\components\BaseController;
+use common\services\GetOperateInfo;
 
-class SiteController extends Controller
+class SiteController extends BaseController
 {
 
     /**
@@ -18,20 +19,25 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-//        $aa=\Yii::$app->request->get("aa");
-        return "aaa";
+
+        return array("data" => "sas", "msg" => "查询成功");
     }
 
     public function actionInfo()
     {
-        return "info";
+        $token = \Yii::$app->request->headers->get('x-access-token');
+        return json_encode("dssad");
     }
 
     /**
      * 单元测试事物
      */
-    public function actionTest(){
-        return "test";
+    public function actionTest()
+    {
+        $getOperateInfo=new GetOperateInfo();
+        $info=$getOperateInfo->browse_info();
+//        die($info[1]);
+        return $info[0];
     }
 
 }

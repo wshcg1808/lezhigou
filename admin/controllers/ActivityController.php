@@ -9,16 +9,16 @@
 namespace admin\controllers;
 
 
+use admin\components\BaseController;
 use admin\services\ActivityDelService;
-use yii\web\Controller;
 
-class ActivityController extends Controller
+class ActivityController extends BaseController
 {
     public function actionDel()
     {
         $activity_id = \Yii::$app->request->post("activity_id");
         $activityDelService = new ActivityDelService();
         $activityDelService->del($activity_id);
-        return json_encode(array("msg" => "删除成功"));
+        return array("msg" => "删除成功");
     }
 }
