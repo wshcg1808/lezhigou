@@ -16,6 +16,12 @@ return [
         'request' => [
             'csrfParam' => '_csrf-admin',
         ],
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => 'localhost',
+            'port' => 6379,
+            'database' => 0,
+        ],
 //        'user' => [
 //            'identityClass' => 'common\models\User',
 //            'enableAutoLogin' => true,
@@ -30,14 +36,14 @@ return [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning','info'],
+                    'levels' => ['error', 'warning', 'info'],
                 ],
             ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

@@ -5,7 +5,6 @@ namespace mobile\controllers;
 
 
 use mobile\components\MobileBaseController;
-use yii\web\Controller;
 
 /**
  * Site controller
