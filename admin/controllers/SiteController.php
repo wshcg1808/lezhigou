@@ -45,6 +45,7 @@ class SiteController extends BaseController
      */
     public function actionGet()
     {
+        
         // 获取 redis 组件
         $redis = \Yii::$app->redis;
 
