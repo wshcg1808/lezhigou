@@ -20,7 +20,7 @@ class SiteController extends BaseController
     public function actionIndex()
     {
         
-        return array("data" => "sas", "msg" => "查询成功");
+        return array("data" => "dexsdfsdf", "msg" => "查询成功");
     }
     
     public function actionInfo()
@@ -28,7 +28,7 @@ class SiteController extends BaseController
         $token = \Yii::$app->request->headers->get('x-access-token');
         return json_encode("dssad");
     }
-    
+
     
     /**
      * 单元测试事物
